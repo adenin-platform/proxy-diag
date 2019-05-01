@@ -4,9 +4,14 @@ This CLI will test the various tunnel proxy methods to a given endpoint, via a g
 
 ## Install the app
 
+First start Powershell, and make sure you know the location in which you have cloned this repo. You will need to have [Node.js and npm](https://nodejs.org/en/) installed on your machine.
+
 ```bash
 # cd into the app directory
-cd ~/myrepos/proxy-test-cli
+cd ~/location/of/repo/proxy-test-cli
+
+# or cd into a full path copied from file explorer
+cd "C:\Users\Administrator\path\to\proxy-test-cli"
 
 # install
 npm install
@@ -14,15 +19,53 @@ npm install
 
 ## Run the app
 
+Again, from Powershell.
+
 ```bash
 # cd into the app directory
-cd ~/myrepos/proxy-test-cli
+cd ~/location/of/repo/proxy-test-cli
+
+# or cd into a full path copied from file explorer
+cd "C:\Users\Administrator\path\to\proxy-test-cli"
 
 # run via
 node app.js
 
 # or via
 npm start
+```
+
+## Example input and output
+
+The app will first present a series of prompts to provide connection options, and then display a table of results as the requests complete. Only the endpoint (address to proxy to) and proxy server hostname are required. Custom port, auth credentials, and the use of any local certificate is optionally enabled.
+
+```bash
+# run the app
+node app.js
+
+# prompts begin
+? Enter endpoint to proxy to: my.website.com
+? Enter proxy hostname or IP: my.proxy.server.com
+
+ # optional, will use 80 if skipped
+? Enter proxy port (optional): 80
+
+# optional, type 'n' to skip
+? Proxy requires auth credentials? Yes
+
+ # username and password mandatory once requested
+? Proxy username: myusername
+? Proxy password: [hidden]
+
+# whether to attach any local certificate.pem to the request
+? Use local certificate.pem for client authentication? No
+
+# result will show a 200 status code for success, or error message
+method          protocol        result
+httpOverHttp    http            200
+httpOverHttp    https           200
+httpsOverHttp   http            unable to verify the first certificate
+httpsOverHttp   https           unable to verify the first certificate
 ```
 
 ## Adding a client CA
@@ -43,7 +86,7 @@ Click _Next_, then choose _Base-64 encoded X.509 (.CER)_. Click _Next_ again.
 
 ![wizard2](/docs/assets/wizard2.png)
 
-In the next screen you'll be asked to specify the file to export, select _Browse_ and navigate to the folder containing the CLI app. Change _Save as type_ to _All files (*.*)_ and name it `certificate.pem`.
+In the next screen you'll be asked to specify the file to export, select _Browse_ and navigate to the folder containing the CLI app. Navigate into the root folder of this app's repo, change _Save as type_ to _All files (*.*)_ and name it `certificate.pem`.
 
 ![saveAsPem](/docs/assets/saveAsPEM.png)
 
