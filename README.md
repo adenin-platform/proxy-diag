@@ -47,7 +47,7 @@ node app.js
 ? Enter endpoint to proxy to: my.website.com
 ? Enter proxy hostname or IP: my.proxy.server.com
 
- # optional, will use 80 if skipped
+# optional, will use 80 if skipped
 ? Enter proxy port (optional): 80
 
 # optional, type 'n' to skip

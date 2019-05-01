@@ -27,6 +27,7 @@ module.exports = async (context, protocol, method) => {
 // Function to format and colourise table row in output
 function tag(protocol, method, message) {
   let protocolTag;
+  let methodTag;
 
   switch (protocol) {
   case 'http':
@@ -36,5 +37,8 @@ function tag(protocol, method, message) {
     protocolTag = chalk.magenta(protocol);
   }
 
-  return `${chalk.yellow(method)}\t${protocolTag}\t\t${message}`;
+  if (method.includes('http')) methodTag = chalk.blue(method);
+  if (method.includes('https')) methodTag = chalk.yellow(method);
+
+  return `${chalk.yellow(methodTag)}\t${protocolTag}\t\t${message}`;
 }
