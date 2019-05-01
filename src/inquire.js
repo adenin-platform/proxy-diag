@@ -12,7 +12,7 @@ module.exports = async () => {
       validate: (value) => {
         if (value.length) return true;
 
-        return 'Enter endpoint to proxy to:';
+        return 'Endpoint is required';
       }
     },
     // Prompt for proxy server hostname or IP
@@ -23,7 +23,7 @@ module.exports = async () => {
       validate: (value) => {
         if (value.length) return true;
 
-        return 'Enter proxy hostname or IP:';
+        return 'Proxy hostname or IP is required';
       }
     },
     // Prompt for custom proxy port
@@ -33,7 +33,7 @@ module.exports = async () => {
       message: 'Enter proxy port (optional):',
       default: 80,
       validate: (value) => {
-        if (isNaN(value)) return 'Enter proxy port (optional):';
+        if (isNaN(value) || value > 65535) return 'Must be a valid port number';
 
         return true;
       }
@@ -55,7 +55,7 @@ module.exports = async () => {
       validate: (value) => {
         if (value.length) return true;
 
-        return 'Proxy username:';
+        return 'Username is required';
       }
     },
     // Prompt for password if auth required
@@ -69,7 +69,7 @@ module.exports = async () => {
       validate: (value) => {
         if (value.length) return true;
 
-        return 'Proxy password:';
+        return 'Password is required';
       }
     },
     // Ask about *OverHttps
