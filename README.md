@@ -53,7 +53,7 @@ node app.js
 # optional, type 'n' to skip
 ? Proxy requires auth credentials? Yes
 
- # username and password mandatory once requested
+# username and password mandatory once requested
 ? Proxy username: myusername
 ? Proxy password: [hidden]
 
