@@ -45,7 +45,7 @@ Click _Next_, then choose _Base-64 encoded X.509 (.CER)_. Click _Next_ again.
 
 In the next screen you'll be asked to specify the file to export, select _Browse_ and navigate to the folder containing the CLI app. Change _Save as type_ to _All files (*.*)_ and name it `certificate.pem`.
 
-![saveAsPem](/docs/assets/saveAsPem.png)
+![saveAsPem](/docs/assets/saveAsPEM.png)
 
 Press _Save_, then back in the export wizard window, click _Next_ then _Finish_. It will export a file `certificate.pem.cer`.
 
