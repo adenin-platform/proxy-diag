@@ -1,0 +1,17 @@
+{
+  "name": "proxy-diag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "got": "^9.6.0",
+    "inquirer": "^6.3.1",
+    "tunnel": "^0.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "olliejm"
+}
