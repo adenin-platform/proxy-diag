@@ -49,9 +49,7 @@ module.exports = async () => {
       name: 'username',
       type: 'input',
       message: 'Proxy username:',
-      when: (answers) => {
-        return answers.auth;
-      },
+      when: (answers) => answers.auth,
       validate: (value) => {
         if (value.length) return true;
 
@@ -63,9 +61,7 @@ module.exports = async () => {
       name: 'password',
       type: 'password',
       message: 'Proxy password:',
-      when: (answers) => {
-        return answers.auth;
-      },
+      when: (answers) => answers.auth,
       validate: (value) => {
         if (value.length) return true;
 
@@ -79,15 +75,13 @@ module.exports = async () => {
       message: 'Also test *OverHttps methods? (for https client->proxy connections)',
       default: false,
       // Currently *OverHttps would need further implementation, so never ask
-      when: (answers) => {
-        return isNaN(answers.port);
-      }
+      when: (answers) => isNaN(answers.port)
     },
     // Ask whether to use the local certificate.pem
     {
       name: 'useCA',
       type: 'confirm',
-      message: 'Use local certificate.pem for client authentication?',
+      message: 'Use local certificate.pem?',
       default: true
     }
   ]);

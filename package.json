@@ -1,5 +1,5 @@
 {
-  "name": "proxy-diag",
+  "name": "@adenin/proxy-diag",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
